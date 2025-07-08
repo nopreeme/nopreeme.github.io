@@ -80,21 +80,25 @@
 
     <main>
 
-        <!-- Weekly Video Section -->
-        <section id="video-section" class="bg-white pt-6 pb-12 rounded-lg shadow-md mb-8">
-            <div class="container mx-auto">
-                <h2 class="text-2xl font-bold mb-4 text-center brand-text-gray">This Week's Challenge</h2>
-                <div class="aspect-w-9 aspect-h-16 mx-auto rounded-lg overflow-hidden shadow-inner" style="max-width: 1080px; max-height: 720px;">
-                    <!-- Embed your weekly video here -->
-                    <iframe 
-                        src="https://www.youtube.com/embed/TIxA4tEzdq0" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        class="w-full h-full"
-                        ></iframe>
+        <!-- Enhanced Weekly Video Section -->
+        <section id="video-section" class="bg-gray-900 py-8 md:py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center text-white">This Week's Challenge</h2>
+                <div class="max-w-4xl mx-auto bg-black rounded-lg overflow-hidden shadow-2xl">
+                    <!-- The container now uses the built-in Tailwind aspect-ratio class -->
+                    <div class="aspect-video">
+                        <iframe 
+                            src="https://www.youtube.com/embed/TIxA4tEzdq0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="w-full h-full">
+                        </iframe>
+                    </div>
                 </div>
-                <p class="text-center text-gray-600 mt-4">Watch the video to meet this week's contenders. One of them is not like the others!</p>
+                <p class="text-center text-gray-300 mt-6 text-lg max-w-3xl mx-auto">
+                    Watch the video to meet this week's contenders. One of them is not like the others!
+                </p>
             </div>
         </section>
 
