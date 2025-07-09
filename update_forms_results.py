@@ -8,6 +8,7 @@ TENANT_ID = os.environ.get("AZURE_TENANT_ID")
 CLIENT_ID = os.environ.get("AZURE_CLIENT_ID")
 CLIENT_SECRET = os.environ.get("AZURE_CLIENT_SECRET")
 FORM_ID = "YnZjRo8WZEKQyEvpQHdiHfvIT55TnedEhEDR5kd4f1tUQkExVFJKSzlGN05BSloyTkpFQUlSVlpSNC4u" # Your Microsoft Form ID
+GROUP_ID = "f4b71ed7-2fc2-4202-889b-1aed35f91e24" # Your Microsoft 365 Group ID
 
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 SCOPE = ["https://graph.microsoft.com/.default"]
@@ -32,9 +33,8 @@ def get_form_responses(access_token, form_id):
         "Authorization": f"Bearer {access_token}",
         "Content-Type": "application/json"
     }
-    # This endpoint gets all responses for a form
-    # You might need to adjust this if your form has multiple pages or complex questions
-    response_url = f"{GRAPH_API_ENDPOINT}/forms/{form_id}/responses"
+    # Endpoint for group forms
+    response_url = f"{GRAPH_API_ENDPOINT}/groups/{GROUP_ID}/forms/{form_id}/responses"
     
     responses = []
     while response_url:
