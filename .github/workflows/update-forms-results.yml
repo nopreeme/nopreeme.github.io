@@ -19,10 +19,10 @@ jobs:
         python-version: '3.x' # Use the latest Python 3.x
 
     - name: Install dependencies
-      run: pip install -r ihub_site/requirements.txt
+      run: pip install -r requirements.txt
 
     - name: Run script to update results.html
-      run: python ihub_site/update_forms_results.py
+      run: python update_forms_results.py
       env:
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
@@ -32,6 +32,6 @@ jobs:
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add ihub_site/results.html
+        git add results.html
         git commit -m "Automated: Update Microsoft Forms results" || echo "No changes to commit"
         git push
