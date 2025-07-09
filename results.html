@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHub Intern Survey Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .brand-gradient-bg {
+            background: linear-gradient(135deg, #343a40 0%, #0091AD 100%);
+        }
+        .brand-bg-blue {
+            background-color: #0091AD;
+        }
+        .brand-text-blue {
+            color: #0091AD;
+        }
+        .brand-bg-gray {
+            background-color: #343a40;
+        }
+        .brand-text-gray {
+            color: #343a40;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="flex items-center">
+                   <span class="w-8 h-8 brand-bg-gray rounded-md flex items-center justify-center text-white font-bold text-xl">B</span>
+                   <div class="ml-2">
+                        <div class="w-8 h-1 brand-bg-blue rounded-full mb-1"></div>
+                        <div class="w-8 h-1 brand-bg-blue rounded-full mb-1"></div>
+                        <div class="w-8 h-1 brand-bg-blue rounded-full"></div>
+                   </div>
+                </div>
+                <span class="text-xl font-bold brand-text-gray">iHub Intern</span>
+            </a>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html#video-section" class="text-gray-600 hover:brand-text-blue transition-colors">The Challenge</a>
+                <a href="index.html#characters-section" class="text-gray-600 hover:brand-text-blue transition-colors">The Interns</a>
+                <a href="index.html#voting-section" class="text-gray-600 hover:brand-text-blue transition-colors">Vote</a>
+                <a href="results.html" class="text-gray-600 hover:brand-text-blue transition-colors nav-link-active">Results</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="index.html#video-section" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">The Challenge</a>
+            <a href="index.html#characters-section" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">The Interns</a>
+            <a href="index.html#voting-section" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">Vote</a>
+            <a href="results.html" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">Results</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8 pt-10">
+        <section id="results-section" class="bg-white p-6 rounded-lg shadow-md text-center">
+            <h2 class="text-2xl font-bold mb-4 brand-text-gray">Survey Results</h2>
+            <p class="mb-6 text-gray-600">This page will be updated automatically with the latest survey results.</p>
+            
+            <!-- Placeholder for dynamic content -->
+            <div id="survey-results-content">
+                <p>Loading results...</p>
+                <!-- Results will be injected here by the GitHub Action -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="brand-bg-gray text-white mt-8 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 iHub. All rights reserved.</p>
+            <p>Exploring the future of Artificial Intelligence, together.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Navigation Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

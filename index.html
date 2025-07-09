@@ -60,7 +60,7 @@
                 <a href="#video-section" class="text-gray-600 hover:brand-text-blue transition-colors">The Challenge</a>
                 <a href="#characters-section" class="text-gray-600 hover:brand-text-blue transition-colors">The Interns</a>
                 <a href="#voting-section" class="text-gray-600 hover:brand-text-blue transition-colors">Vote</a>
-                <a href="#results-section" class="text-gray-600 hover:brand-text-blue transition-colors">Results</a>
+                <a href="results.html" class="text-gray-600 hover:brand-text-blue transition-colors">Results</a>
             </div>
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
@@ -74,7 +74,7 @@
             <a href="#video-section" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">The Challenge</a>
             <a href="#characters-section" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">The Interns</a>
             <a href="#voting-section" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">Vote</a>
-            <a href="#results-section" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">Results</a>
+            <a href="results.html" class="block py-3 px-6 text-gray-600 hover:bg-gray-50 hover:brand-text-blue">Results</a>
         </div>
     </header>
 
@@ -219,24 +219,7 @@
                 });
             });
 
-            // --- Voting & Results Logic ---
-            const voteButton = document.getElementById('vote-button');
-            const resultsSection = document.getElementById('results-section');
-            const revealButton = document.getElementById('reveal-button');
-            const revealContainer = document.getElementById('reveal-container');
-            const resultsContent = document.getElementById('results-content');
-
-            voteButton.addEventListener('click', () => {
-                setTimeout(() => {
-                    resultsSection.style.display = 'block';
-                    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 1500);
-            });
-
-            revealButton.addEventListener('click', () => {
-                revealContainer.style.display = 'none';
-                resultsContent.classList.remove('hidden');
-            });
+            
         });
     </script>
 
