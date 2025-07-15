@@ -1,16 +1,67 @@
-            - name: Astro Check
-  # You may pin to the exact commit or the version.
-  # uses: radenpioneer/astro-check@abb4ec095ab8b900fb29fb975dafd57fa4db38d8
-  uses: radenpioneer/astro-check@v0.1.2
-  with:
-    # Path of the directory containing your site
-    path: # optional, default is .
-    # The node version to use
-    node-version: # optional, default is 18
-    # If not automatically detectable, you may specify your preferred package manager
-    package-manager: pnpm # optional, default is 
-    # If the dependency file is located inside the folder specified by path
-    resolve-dep-from-path: # optional, default is true
-    # Your supplied check command, defined in `package.json` Defaults to `check`.
-    check-command: # default is check
-          
+name: Deploy Astro site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Set a branch to deploy from
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: 'pnpm' # Cache pnpm modules
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Astro
+        run: pnpm run build --site "${{ steps.pages.outputs.origin }}" --base "${{ steps.pages.outputs.base_path }}"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # The directory where Astro builds your site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
