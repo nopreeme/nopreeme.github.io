@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: read
+      id-token: write
     steps:
       - name: Checkout your project
         uses: actions/checkout@v4
@@ -30,4 +32,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist # The directory where Astro builds your site
-          cname: example.com # Optional: if you have a custom domain
