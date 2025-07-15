@@ -1,0 +1,70 @@
+---
+import Button from "@/components/atoms/Button.astro";
+
+export interface Props {
+  ctaText: string;
+  qrCodeSrc: string;
+  voteButtonLink: string;
+}
+
+const { ctaText, qrCodeSrc, voteButtonLink } = Astro.props;
+---
+
+<section class="cast-your-vote-section">
+  <div class="container">
+    <h2>{ctaText}</h2>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-3xl">
+      <div class="qr-code-wrapper md:order-1">
+        <img src={qrCodeSrc} alt="QR Code for Voting" class="qr-code" />
+        <p>Scan Me!</p>
+      </div>
+      <div class="md:order-2">
+        <Button href={voteButtonLink} variant="primary" size="xl">
+          Vote Now
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cast-your-vote-section {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-background-alt);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cast-your-vote-section h2 {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-2xl);
+    color: var(--color-heading);
+  }
+
+  .qr-code-wrapper {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .qr-code {
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin: 0 auto var(--spacing-sm);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-medium);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  .qr-code-wrapper p {
+    font-size: var(--font-size-md);
+    color: var(--color-text);
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+</style>

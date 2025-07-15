@@ -1,0 +1,100 @@
+---
+import Button from "../atoms/Button.astro";
+---
+
+<section class="contact section">
+  <div class="container text-center">
+    <h2 class="text-4xl font-bold">Let's Build the Future Together</h2>
+    <p class="text-lg text-muted mb-lg" style="margin: 0 auto;">
+      Have a project in mind? We'd love to hear from you.
+    </p>
+    <form class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName" class="visually-hidden">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            placeholder="First Name"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="visually-hidden">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            placeholder="Last Name"
+            class="form-input"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="visually-hidden">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Your Email"
+          class="form-input"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone" class="visually-hidden">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Phone Number (Optional)"
+          class="form-input"
+        />
+      </div>
+      <div class="form-group">
+        <label for="organization" class="visually-hidden"
+          >Business/Organization</label
+        >
+        <input
+          type="text"
+          id="organization"
+          placeholder="Business/Organization (Optional)"
+          class="form-input"
+        />
+      </div>
+      <div class="form-group">
+        <label for="message" class="visually-hidden">Message</label>
+        <textarea
+          id="message"
+          placeholder="How can we help you innovate?"
+          class="form-input"
+          rows="5"></textarea>
+      </div>
+      <Button type="submit" variant="outline" size="lg">Send Message</Button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .form-row {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .form-row .form-group {
+    flex: 1;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background: var(--glass-bg);
+    color: var(--color-text-primary);
+    font-size: var(--text-base);
+  }
+</style>

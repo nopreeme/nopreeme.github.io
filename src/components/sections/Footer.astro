@@ -1,0 +1,117 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socialLinks = [
+  { href: "#", icon: "lucide:twitter", name: "Twitter" },
+  { href: "#", icon: "lucide:linkedin", name: "LinkedIn" },
+  { href: "#", icon: "lucide:github", name: "GitHub" },
+];
+---
+
+<footer class="footer">
+  <div class="container text-center">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="/" class="footer-link">Home</a></li>
+          <li><a href="/about" class="footer-link">About</a></li>
+          <li><a href="/projects" class="footer-link">Projects</a></li>
+          <li><a href="/interns" class="footer-link">Interns</a></li>
+          <li><a href="/contact" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-heading">Contact Us</h3>
+        <p class="footer-text">Email: info@ihub.com</p>
+        <p class="footer-text">Phone: +1 (123) 456-7890</p>
+        <div class="social-links">
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">LinkedIn</a>
+          <a href="#" class="social-link">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-heading">About iHub</h3>
+        <p class="footer-text">
+          iHub is a leader in AI innovation, delivering cutting-edge solutions
+          and nurturing the future of tech through our intern program.
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-muted text-sm">
+        &copy; {new Date().getFullYear()} iHub. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-xl) 0;
+    background: var(--glass-bg);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-2xl);
+    text-align: left;
+    margin-bottom: var(--space-xl);
+  }
+
+  .footer-heading {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-md);
+    color: var(--color-text-primary);
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-link {
+    display: block;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: var(--space-sm);
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .footer-text {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .social-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--text-md);
+    transition: color 0.2s ease;
+  }
+
+  .social-link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-md);
+    text-align: center;
+  }
+</style>

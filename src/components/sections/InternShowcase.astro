@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import { InternSchema } from "@/lib/schemas";
+import Button from "../atoms/Button.astro";
+
+const interns = await getCollection("interns");
+---
+
+<section class="intern-showcase section">
+  <div class="container">
+    <h2 class="text-4xl font-bold text-center">Our Interns</h2>
+    <p class="text-lg text-muted text-center pb-xl" style="margin: 0 auto;">
+      Meet the talented individuals driving innovation at iHub.
+    </p>
+    <div
+      class="grid"
+      style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));"
+    >
+      {
+        interns.map((intern) => {
+          const validatedIntern = InternSchema.parse(intern.data);
+          return (
+            <div class="card-modern text-center">
+              <img
+                src={validatedIntern.image}
+                alt={validatedIntern.name}
+                class="rounded-full mb-md mx-auto"
+                width="150"
+                height="150"
+              />
+              <h3 class="text-xl font-bold">{validatedIntern.name}</h3>
+              <p class="text-muted">{validatedIntern.title}</p>
+              {validatedIntern.university && (
+                <p class="text-muted text-sm">{validatedIntern.university}</p>
+              )}
+              <Button href={validatedIntern.url} variant="outline" size="sm">
+                View Profile
+              </Button>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .rounded-full {
+    border-radius: 9999px;
+  }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

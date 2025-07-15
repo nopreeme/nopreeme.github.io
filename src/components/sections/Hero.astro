@@ -1,0 +1,28 @@
+---
+import Button from "../atoms/Button.astro";
+---
+
+<section class="hero">
+  <div class="container text-center">
+    <h1 class="text-balance">
+      Innovate with AI, Powered by the Next Generation
+    </h1>
+    <p class="text-lg text-muted text-pretty">
+      iHub is a collective of AI experts and top-tier interns, delivering
+      cutting-edge solutions while nurturing the future of tech.
+    </p>
+    <div class="flex items-center justify-center gap-md">
+      <Button href="/projects" variant="outline" size="lg">View Our Work</Button
+      >
+      <Button href="/contact" variant="outline" size="lg"
+        >Partner with Us</Button
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--space-4xl) 0;
+  }
+</style>
