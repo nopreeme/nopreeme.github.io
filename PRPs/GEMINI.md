@@ -16,10 +16,7 @@ This is a **PRP (Product Requirement Prompt) Framework** repository, not a tradi
 
 ### AI Documentation Curation
 
-- `PRPs/ai_docs/` contains curated Claude Code documentation for context injection
-- `claude_md_files/` provides framework-specific CLAUDE.md examples
-
-## Development Commands
+- `PRPs/ai_docs/` 
 
 ### PRP Execution
 
@@ -95,21 +92,64 @@ curl -X POST http://localhost:8000/endpoint -H "Content-Type: application/json" 
 
 ## Project Structure Understanding
 
+.
 ├── astro.config.mjs
-├── CLAUDE.md
+├── dist
+│   ├── _astro
+│   │   ├── about.HaSPfzOM.css
+│   │   └── contact.DCR8qOuM.css
+│   ├── about
+│   │   └── index.html
+│   ├── contact
+│   │   └── index.html
+│   ├── favicon.svg
+│   ├── index.html
+│   ├── interns
+│   │   └── index.html
+│   ├── placeholder.svg
+│   └── projects
+│       ├── ai-intern-challenge
+│       │   └── index.html
+│       └── index.html
 ├── eslint.config.js
 ├── GEMINI-NEXTJS-15.md
 ├── GEMINI-NODE.md
 ├── GEMINI-PYTHON-BASIC.md
 ├── GEMINI-REACT.md
 ├── GEMINI.md
+├── node_modules
+│   ├── @astrojs
+│   │   ├── check -> ../.pnpm/@astrojs+check@0.9.4_prettier-plugin-astro@0.14.1_prettier@3.6.2_typescript@5.8.3/node_modules/@astrojs/check
+│   │   └── tailwind -> ../.pnpm/@astrojs+tailwind@6.0.2_astro@5.11.0_@types+node@24.0.13_jiti@1.21.7_rollup@4.44.2_type_8ba8956f81ae5a6243dafde423e8698c/node_modules/@astrojs/tailwind
+│   ├── @eslint
+│   │   └── js -> ../.pnpm/@eslint+js@9.30.1/node_modules/@eslint/js
+│   ├── @iconify-json
+│   │   ├── lucide -> ../.pnpm/@iconify-json+lucide@1.2.57/node_modules/@iconify-json/lucide
+│   │   └── mdi -> ../.pnpm/@iconify-json+mdi@1.2.3/node_modules/@iconify-json/mdi
+│   ├── @typescript-eslint
+│   │   ├── eslint-plugin -> ../.pnpm/@typescript-eslint+eslint-plugin@8.36.0_@typescript-eslint+parser@8.36.0_eslint@9.30.1__dc2f88a882bdde48c0d05e7713d43690/node_modules/@typescript-eslint/eslint-plugin
+│   │   └── parser -> ../.pnpm/@typescript-eslint+parser@8.36.0_eslint@9.30.1_jiti@1.21.7__typescript@5.8.3/node_modules/@typescript-eslint/parser
+│   ├── astro -> .pnpm/astro@5.11.0_@types+node@24.0.13_jiti@1.21.7_rollup@4.44.2_typescript@5.8.3_yaml@2.8.0/node_modules/astro
+│   ├── astro-icon -> .pnpm/astro-icon@1.1.5/node_modules/astro-icon
+│   ├── eslint -> .pnpm/eslint@9.30.1_jiti@1.21.7/node_modules/eslint
+│   ├── eslint-plugin-astro -> .pnpm/eslint-plugin-astro@1.3.1_eslint@9.30.1_jiti@1.21.7_/node_modules/eslint-plugin-astro
+│   ├── prettier -> .pnpm/prettier@3.6.2/node_modules/prettier
+│   ├── prettier-plugin-astro -> .pnpm/prettier-plugin-astro@0.14.1/node_modules/prettier-plugin-astro
+│   ├── typescript -> .pnpm/typescript@5.8.3/node_modules/typescript
+│   ├── vitest -> .pnpm/vitest@3.2.4_@types+debug@4.1.12_@types+node@24.0.13_jiti@1.21.7_yaml@2.8.0/node_modules/vitest
+│   └── zod -> .pnpm/zod@4.0.3/node_modules/zod
 ├── package.json
 ├── pnpm-lock.yaml
 ├── PRPs
 │   ├── ai_docs
+│   │   ├── astro-5-patterns.md
+│   │   ├── glass-morphism-guide.md
+│   │   ├── llm.md
+│   │   ├── mcp_patterns.md
 │   │   └── register-components.md
 │   ├── branding
 │   │   └── branding.md
+│   ├── GEMINI.md
 │   ├── iHubPlan.md
 │   ├── README.md
 │   └── templates
@@ -117,37 +157,61 @@ curl -X POST http://localhost:8000/endpoint -H "Content-Type: application/json" 
 │       ├── TS-prp-create.md
 │       └── TS-prp-execute.md
 ├── public
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── placeholder.svg
 ├── README.md
-└── src
-    ├── components
-    │   ├── atoms
-    │   │   └── Button.astro
-    │   └── showcase
-    │       ├── ColorShowcase.astro
-    │       ├── ComponentExample.astro
-    │       ├── ComponentSection.astro
-    │       ├── IconShowcase.astro
-    │       ├── ThemeToggle.astro
-    │       └── TypographyShowcase.astro
-    ├── data
-    │   ├── colors.ts
-    │   ├── components
-    │   │   └── button.ts
-    │   ├── showcase.ts
-    │   └── types.ts
-    ├── layouts
-    │   └── Layout.astro
-    ├── lib
-    │   ├── accessibility.ts
-    │   ├── schemas.ts
-    │   └── theme.ts
-    ├── pages
-    │   └── index.astro
-    └── styles
-        ├── global.css
-        └── tokens.css
-
+├── src
+│   ├── components
+│   │   ├── atoms
+│   │   │   └── Button.astro
+│   │   ├── sections
+│   │   │   ├── About.astro
+│   │   │   ├── CastYourVote.astro
+│   │   │   ├── Contact.astro
+│   │   │   ├── FeaturedProjects.astro
+│   │   │   ├── Footer.astro
+│   │   │   ├── Header.astro
+│   │   │   ├── Hero.astro
+│   │   │   ├── InternShowcase.astro
+│   │   │   └── Projects.astro
+│   │   └── showcase
+│   │       ├── ColorShowcase.astro
+│   │       ├── ComponentExample.astro
+│   │       ├── ComponentSection.astro
+│   │       ├── IconShowcase.astro
+│   │       ├── ThemeToggle.astro
+│   │       └── TypographyShowcase.astro
+│   ├── content
+│   │   ├── interns
+│   │   │   ├── intern-1.md
+│   │   │   └── intern-2.md
+│   │   └── projects
+│   │       ├── ai-intern-challenge.md
+│   │       └── project-2.md
+│   ├── data
+│   │   ├── colors.ts
+│   │   ├── components
+│   │   │   └── button.ts
+│   │   ├── showcase.ts
+│   │   └── types.ts
+│   ├── layouts
+│   │   └── Layout.astro
+│   ├── lib
+│   │   ├── accessibility.ts
+│   │   ├── schemas.ts
+│   │   └── theme.ts
+│   ├── pages
+│   │   ├── about.astro
+│   │   ├── contact.astro
+│   │   ├── index.astro
+│   │   ├── interns.astro
+│   │   └── projects
+│   │       ├── ai-intern-challenge.astro
+│   │       └── index.astro
+│   └── styles
+│       ├── global.css
+│       └── tokens.css
+└── tsconfig.json
 
 
 

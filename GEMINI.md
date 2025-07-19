@@ -89,6 +89,12 @@ rg --files -g "*.ts"
 
 ## 🚀 Astro 5+ Key Features
 
+## Further reference for Astro 5 (MUST READ)
+
+See the [ai_docs folder](./ai_docs/) for additional documentation and resources.
+
+
+
 ### Github Integrations
 - **Link**: https://docs.astro.build/en/guides/deploy/github/
 why:Astro maintains the official withastro/action to deploy your project with very little configuration. Follow the link to deploy your project with very little configuration.
