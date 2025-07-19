@@ -4,14 +4,15 @@ import Header from "@/components/sections/Header.astro";
 import Footer from "@/components/sections/Footer.astro";
 import Button from "@/components/atoms/Button.astro";
 import CastYourVote from "@/components/sections/CastYourVote.astro";
+import AIVideoInterns from "@/components/sections/AIVideoInterns.astro";
 ---
 
 <Layout title="AI Intern Challenge">
   <Header />
   <main class="section">
     <div class="container text-center">
-      <h1 class="text-4xl font-bold">AI Intern Challenge</h1>
-      <p class="text-lg text-muted">
+      <h1 class="container text-4xl font-bold">AI Intern Challenge</h1>
+      <p class="container text-lg text-muted">
         Watch the challenge video and cast your vote!
       </p>
       <div class="video-container">
@@ -22,6 +23,34 @@ import CastYourVote from "@/components/sections/CastYourVote.astro";
       </div>
     </div>
   </main>
+  <AIVideoInterns
+    interns={[
+      {
+        name: "Alice Smith",
+        headshot: "/placeholder.svg",
+        university: "University of California, Berkeley",
+        major: "Computer Science",
+      },
+      {
+        name: "Bob Johnson",
+        headshot: "/placeholder.svg",
+        university: "Stanford University",
+        major: "Artificial Intelligence",
+      },
+      {
+        name: "Charlie Brown",
+        headshot: "/placeholder.svg",
+        university: "Carnegie Mellon University",
+        major: "Robotics",
+      },
+      {
+        name: "Diana Prince",
+        headshot: "/placeholder.svg",
+        university: "Massachusetts Institute of Technology",
+        major: "Data Science",
+      },
+    ]}
+  />
   <CastYourVote
     ctaText="Cast Your Vote!"
     qrCodeSrc="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://forms.office.com/pages/responsepage.aspx?id=YnZjRo8WZEKQyEvpQHdiHfvIT55TnedEhEDR5kd4f1tUQkExVFJKSzlGN05BSloyTkpFQUlSVlpSNC4u&route=shorturl"

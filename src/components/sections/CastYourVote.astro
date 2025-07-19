@@ -10,16 +10,16 @@ export interface Props {
 const { ctaText, qrCodeSrc, voteButtonLink } = Astro.props;
 ---
 
-<section class="cast-your-vote-section">
-  <div class="container">
-    <h2>{ctaText}</h2>
-    <div class="flex flex-col md:flex-row items-center justify-center gap-3xl">
-      <div class="qr-code-wrapper md:order-1">
+<section class="cast-your-vote-section section">
+  <div class="container glass-container">
+    <h2 class="text-4xl font-bold text-center">{ctaText}</h2>
+    <div class="content-wrapper">
+      <div class="qr-code-wrapper">
         <img src={qrCodeSrc} alt="QR Code for Voting" class="qr-code" />
-        <p>Scan Me!</p>
+        <p class="text-md text-muted">Scan Me!</p>
       </div>
-      <div class="md:order-2">
-        <Button href={voteButtonLink} variant="primary" size="xl">
+      <div class="vote-button-wrapper">
+        <Button href={voteButtonLink} variant="outline" size="xl">
           Vote Now
         </Button>
       </div>
@@ -30,41 +30,56 @@ const { ctaText, qrCodeSrc, voteButtonLink } = Astro.props;
 <style>
   .cast-your-vote-section {
     text-align: center;
-    padding: var(--spacing-xl) 0;
-    background-color: var(--color-background-alt);
-    border-top: 1px solid var(--color-border);
+    padding: var(--space-4xl) 0;
   }
 
-  .cast-your-vote-section h2 {
-    font-size: var(--font-size-h2);
-    margin-bottom: var(--spacing-2xl);
-    color: var(--color-heading);
+  .glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-medium);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-xl);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-4xl);
+    max-width: 900px; /* Adjust as needed */
+    margin: 0 auto;
+  }
+
+  .glass-container h2 {
+    margin-bottom: var(--space-5xl);
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3xl); /* Gap for mobile */
+  }
+
+  @media (min-width: 768px) {
+    .content-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--space-1xl); /* Larger gap for desktop */
+    }
   }
 
   .qr-code-wrapper {
-    margin-bottom: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
   }
 
   .qr-code {
     width: 180px;
     height: 180px;
-    display: block;
-    margin: 0 auto var(--spacing-sm);
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-medium);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-lg);
     border-radius: var(--radius-lg);
+    object-fit: cover;
   }
 
-  .qr-code-wrapper p {
-    font-size: var(--font-size-md);
-    color: var(--color-text);
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+  .vote-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>

@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/sections/Header.astro";
 import Hero from "@/components/sections/Hero.astro";
+import AIVideoInterns from "@/components/sections/AIVideoInterns.astro";
 import About from "@/components/sections/About.astro";
 import FeaturedProjects from "@/components/sections/FeaturedProjects.astro";
 import Contact from "@/components/sections/Contact.astro";
@@ -15,6 +16,34 @@ import WhatWeDo from "@/components/sections/WhatWeDo.astro";
     <Hero />
     <About />
     <WhatWeDo />
+    <AIVideoInterns
+      interns={[
+        {
+          name: "Alice Smith",
+          headshot: "/placeholder.svg",
+          university: "University of California, Berkeley",
+          major: "Computer Science",
+        },
+        {
+          name: "Bob Johnson",
+          headshot: "/placeholder.svg",
+          university: "Stanford University",
+          major: "Artificial Intelligence",
+        },
+        {
+          name: "Charlie Brown",
+          headshot: "/placeholder.svg",
+          university: "Carnegie Mellon University",
+          major: "Robotics",
+        },
+        {
+          name: "Diana Prince",
+          headshot: "/placeholder.svg",
+          university: "Massachusetts Institute of Technology",
+          major: "Data Science",
+        },
+      ]}
+    />
     <FeaturedProjects />
     <Contact />
   </main>

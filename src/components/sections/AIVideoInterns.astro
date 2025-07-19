@@ -1,0 +1,94 @@
+---
+import type { AIIntern } from "@/data/types";
+
+export interface Props {
+  interns: AIIntern[];
+}
+
+const { interns } = Astro.props;
+---
+
+<section class="ai-video-interns section">
+  <div class="container">
+    <h2 class="text-4xl font-bold text-center">
+      AI Intern Challenge Participants
+    </h2>
+    <p class="text-lg text-muted text-center pb-xl" style="margin: 0 auto;">
+      Meet the talented individuals from this week's AI Intern Challenge.
+    </p>
+    <div class="intern-cards-wrapper">
+      <div class="intern-cards-scroll">
+        {
+          interns.map((intern) => (
+            <div class="intern-card">
+              <img
+                src={intern.headshot}
+                alt={intern.name}
+                class="intern-headshot"
+                width="150"
+                height="150"
+              />
+              <h3 class="text-xl font-bold">{intern.name}</h3>
+              <p class="text-muted">{intern.university}</p>
+              <p class="text-muted text-sm">{intern.major}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ai-video-interns {
+    padding: var(--space-4xl) 0;
+  }
+
+  .intern-cards-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+
+  .intern-cards-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+  }
+
+  .intern-cards-scroll {
+    display: flex;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-md); /* Space for scrollbar if it appears */
+  }
+
+  .intern-card {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 250px; /* Fixed width for each card */
+    background-color: var(--color-surface-2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intern-headshot {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-md);
+    border: 3px solid var(--color-brand-primary);
+  }
+
+  .intern-card h3 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .intern-card p {
+    margin-bottom: var(--space-xs);
+  }
+</style>

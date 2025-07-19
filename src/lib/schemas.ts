@@ -52,3 +52,19 @@ export type ButtonProps = z.infer<typeof ButtonPropsSchema>;
 export function validateButtonProps(props: unknown): ButtonProps {
   return ButtonPropsSchema.parse(props);
 }
+
+export const TestimonialSchema = z.object({
+  quote: z.string(),
+  author: z.string(),
+  avatar: z.string().optional(),
+});
+
+export const TestimonialsPropsSchema = z.object({
+  testimonials: z.array(TestimonialSchema),
+});
+
+export type TestimonialsProps = z.infer<typeof TestimonialsPropsSchema>;
+
+export function validateTestimonialsProps(props: unknown): TestimonialsProps {
+  return TestimonialsPropsSchema.parse(props);
+}

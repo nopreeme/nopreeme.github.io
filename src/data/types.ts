@@ -125,3 +125,13 @@ export interface ComponentExampleConfig<T = ComponentProps> {
   code?: string;
   rgbInfo?: string;
 }
+
+// AI Intern Schema and Type
+export const AIInternSchema = z.object({
+  name: z.string(),
+  headshot: z.string(),
+  university: z.string(),
+  major: z.string(),
+});
+
+export type AIIntern = z.infer<typeof AIInternSchema>;
