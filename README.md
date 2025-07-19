@@ -1,16 +1,6 @@
-# Astro Starter Kit: Basics
+# iHub Astro Website
 
-```sh
-pnpm create astro@latest -- --template basics
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+This is the official website for iHub, a collective of AI experts and top-tier interns, delivering cutting-edge solutions while nurturing the future of tech.
 
 ## 🚀 Project Structure
 
@@ -20,19 +10,59 @@ Inside of your Astro project, you'll see the following folders and files:
 /
 ├── public/
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── components/
+│   │   ├── atoms/
+│   │   │   └── Button.astro
+│   │   ├── sections/
+│   │   │   ├── About.astro
+│   │   │   ├── CastYourVote.astro
+│   │   │   ├── Contact.astro
+│   │   │   ├── FeaturedProjects.astro
+│   │   │   ├── Footer.astro
+│   │   │   ├── Header.astro
+│   │   │   ├── Hero.astro
+│   │   │   ├── InternShowcase.astro
+│   │   │   └── Projects.astro
+│   │   └── showcase/
+│   │       ├── ColorShowcase.astro
+│   │       ├── ComponentExample.astro
+│   │       ├── ComponentSection.astro
+│   │       ├── IconShowcase.astro
+│   │       ├── ThemeToggle.astro
+│   │       └── TypographyShowcase.astro
+│   ├── content/
+│   │   ├── interns/
+│   │   │   ├── intern-1.md
+│   │   │   └── intern-2.md
+│   │   └── projects/
+│   │       ├── ai-intern-challenge.md
+│   │       └── project-2.md
+│   ├── data/
+│   │   ├── colors.ts
+│   │   ├── showcase.ts
+│   │   ├── types.ts
+│   │   └── components/
+│   │       └── button.ts
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── lib/
+│   │   ├── accessibility.ts
+│   │   ├── schemas.ts
+│   │   └── theme.ts
+│   ├── pages/
+│   │   ├── about.astro
+│   │   ├── contact.astro
+│   │   ├── index.astro
+│   │   ├── interns.astro
+│   │   └── projects/
+│   │       ├── ai-intern-challenge.astro
+│   │       └── index.astro
+│   └── styles/
+│       ├── global.css
+│       └── tokens.css
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
