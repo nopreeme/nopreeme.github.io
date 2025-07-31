@@ -1,3 +1,4 @@
+
 ---
 const navLinks = [
   { href: "/about", text: "About" },
@@ -5,6 +6,8 @@ const navLinks = [
   { href: "/interns", text: "Interns" },
   { href: "/contact", text: "Contact" },
 ];
+
+const { session } = Astro.locals as any;
 ---
 
 <header class="header glass-medium">
@@ -24,6 +27,29 @@ const navLinks = [
             </li>
           ))
         }
+        {session ? (
+          <>
+            <li>
+              <a href="/account" class="nav-link">Account</a>
+            </li>
+            <li>
+              <form action="/api/logout" method="post">
+                <button type="submit" class="nav-link">Logout</button>
+              </form>
+            </li>
+          </>
+        ) : (
+          <>
+            {/*
+            <li>
+              <a href="/login" class="nav-link">Login</a>
+            </li>
+            <li>
+              <a href="/signup" class="nav-link">Sign Up</a>
+            </li>
+            */}
+          </>
+        )}
       </ul>
     </nav>
   </div>
@@ -55,6 +81,7 @@ const navLinks = [
 
   .nav-list {
     display: flex;
+    align-items: center; /* Align items vertically */
     gap: var(--space-lg);
     list-style: none;
     padding-left: var(--space-xl);
@@ -65,9 +92,15 @@ const navLinks = [
     color: var(--color-text-secondary);
     font-weight: var(--font-weight-medium);
     transition: color 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit; /* Inherit font size from parent */
   }
 
   .nav-link:hover {
     color: var(--color-text-primary);
   }
 </style>
+

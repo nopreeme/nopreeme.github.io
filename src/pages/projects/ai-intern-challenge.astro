@@ -17,37 +17,40 @@ import AIVideoInterns from "@/components/sections/AIVideoInterns.astro";
       </p>
       <div class="video-container">
         <iframe
-          src="https://www.youtube.com/embed/5msJvH9k8ko"
+          src="https://www.youtube.com/embed/jpOjEPSMnwY"
+          title="YouTube video player"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </main>
   <AIVideoInterns
     interns={[
       {
-        name: "Alice Smith",
+        name: "Brian Jennings ",
         headshot: "/placeholder.svg",
-        university: "University of California, Berkeley",
-        major: "Computer Science",
+        university: "Boston College",
+        major: "Business Managment",
       },
       {
-        name: "Bob Johnson",
+        name: "Inaya Williams",
         headshot: "/placeholder.svg",
-        university: "Stanford University",
-        major: "Artificial Intelligence",
+        university: "George Mason University",
+        major: "Business Analytics",
       },
       {
-        name: "Charlie Brown",
+        name: "Sarah Thompson",
         headshot: "/placeholder.svg",
-        university: "Carnegie Mellon University",
-        major: "Robotics",
+        university: "University of Michigan",
+        major: "Marketing",
       },
       {
-        name: "Diana Prince",
+        name: "Rohan Davis",
         headshot: "/placeholder.svg",
-        university: "Massachusetts Institute of Technology",
-        major: "Data Science",
+        university: "University of Virginia",
+        major: "Economics",
       },
     ]}
   />
@@ -68,6 +71,7 @@ import AIVideoInterns from "@/components/sections/AIVideoInterns.astro";
     max-width: 100%;
     background: #000;
     margin: var(--space-lg) 0;
+    border-radius: var(--radius-lg);
   }
 
   .video-container iframe {

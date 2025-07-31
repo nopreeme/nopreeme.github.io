@@ -1,0 +1,16 @@
+
+---
+import Layout from '~/layouts/Layout.astro';
+import VideoUploadForm from '~/components/islands/VideoUploadForm';
+
+if (!(Astro.locals as any).session) {
+  return Astro.redirect('/login');
+}
+---
+
+<Layout title="Upload Video">
+  <main>
+    <h1>Upload Your Video</h1>
+    <VideoUploadForm client:load />
+  </main>
+</Layout>

@@ -1,0 +1,16 @@
+
+---
+import Layout from '~/layouts/Layout.astro';
+import LoginForm from '~/components/islands/LoginForm';
+
+if ((Astro.locals as any).session) {
+  return Astro.redirect('/account');
+}
+---
+
+<Layout title="Login">
+  <main>
+    <h1>Login</h1>
+    <LoginForm client:load />
+  </main>
+</Layout>
