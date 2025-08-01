@@ -29,7 +29,7 @@ const interns = await getCollection("interns");
                 height="150"
               />
               <h3 class="text-xl font-bold">{validatedIntern.name}</h3>
-              <p class="text-muted">{validatedIntern.title}</p>
+              <p class="text-muted">{validatedIntern.major}</p>
               {validatedIntern.university && (
                 <p class="text-muted text-sm">{validatedIntern.university}</p>
               )}

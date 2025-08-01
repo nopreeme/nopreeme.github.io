@@ -14,6 +14,7 @@ export const InternSchema = z.object({
   image: z.string(),
   url: z.string(),
   university: z.string().optional(),
+  major: z.string(),
 });
 
 export const ButtonPropsSchema = z.object({
