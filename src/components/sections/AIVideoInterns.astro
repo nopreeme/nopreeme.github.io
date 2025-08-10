@@ -1,10 +1,13 @@
 ---
+// Import the type definition for an AI Intern
 import type { AIIntern } from "@/data/types";
 
+// Define the props for this component
 export interface Props {
   interns: AIIntern[];
 }
 
+// Get the interns array from the component's props
 const { interns } = Astro.props;
 ---
 
@@ -16,9 +19,11 @@ const { interns } = Astro.props;
     <p class="text-lg text-muted text-center pb-xl" style="margin: 0 auto;">
       Meet the talented individuals from this week's AI Intern Challenge.
     </p>
+    {/* This wrapper enables horizontal scrolling on overflow */}
     <div class="intern-cards-wrapper">
       <div class="intern-cards-scroll">
         {
+          /* Map over the interns array to create a card for each intern */
           interns.map((intern) => (
             <div class="intern-card">
               <img
@@ -44,6 +49,7 @@ const { interns } = Astro.props;
     padding: var(--space-4xl) 0;
   }
 
+  /* This class creates a container that allows horizontal scrolling */
   .intern-cards-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
@@ -51,10 +57,12 @@ const { interns } = Astro.props;
     -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
   }
 
+  /* Hide scrollbar for Chrome, Safari, Opera */
   .intern-cards-wrapper::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+    display: none;
   }
 
+  /* This class uses flexbox to lay out the intern cards in a row */
   .intern-cards-scroll {
     display: flex;
     gap: var(--space-lg);
